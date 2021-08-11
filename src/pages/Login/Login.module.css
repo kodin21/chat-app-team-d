@@ -1,14 +1,23 @@
-.Login{
+.AppBackground {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Login {
   height: 80%;
   width: 90%;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
 }
 
-.LoginBox{
+.LoginBox {
   height: 200px;
   width: 350px;
   display: flex;
@@ -16,12 +25,12 @@
   border: 1px solid black;
 }
 
-.LoginBoxTitle{
+.LoginBoxTitle {
   border: 1px solid red;
   height: 20%;
 }
 
-.LoginBoxMain{
+.LoginBoxMain {
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -29,15 +38,15 @@
   align-items: center;
 }
 
-.LoginBoxMain span{
+.LoginBoxMain span {
   margin-bottom: 10px;
 }
 
-.LoginBoxMain input{
+.LoginBoxMain input {
   height: 25px;
 }
 
-.LoginBoxMain button{
+.LoginBoxMain button {
   margin-top: 15px;
   width: 50px;
 }
