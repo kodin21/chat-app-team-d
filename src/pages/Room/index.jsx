@@ -22,7 +22,8 @@ function Room() {
       <div className={styles.Room}>
         <div className={styles["Room-Title"]}>{"{channel.title}"}</div>
         <div className={styles.Main}>
-          <div className={styles.Messages}>
+          <div className={styles.MessageList}></div>
+          <div className={styles.MessageContainer}>
             <div className={styles.Message}>
               <div className={styles.UserAvatar}> AC</div>
                <div className={styles.MessageContent}>

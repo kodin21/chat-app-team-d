@@ -93,10 +93,21 @@
   flex-direction: row;
 }
 
-.Messages{
+.MessageList{
   height: 100%;
   flex-grow:1;
   border: 1px solid yellow;
+}
+
+.MessageContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+}
+
+.MessageContainer::-webkit-scrollbar{
+  display:none;
 }
 
 .Message{

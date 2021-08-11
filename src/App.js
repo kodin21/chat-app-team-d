@@ -5,8 +5,8 @@ import Room from './pages/Room';
 function App() {
   return (
     <div className="AppBackground">
-     {<Room />}
-     {false&&<Login/>}
+     {false&&<Room />}
+     {<Login/>}
     </div>
   );
 }
