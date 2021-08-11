@@ -1,5 +1,13 @@
+.AppBackground {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-.App{
+.App {
   height: 80%;
   width: 90%;
   border: 1px solid black;
@@ -7,7 +15,7 @@
   flex-direction: row;
 }
 
-.Left-Sidebar{
+.Left-Sidebar {
   width: 200px;
   height: 100%;
   border: 1px solid red;
@@ -15,7 +23,7 @@
   flex-direction: column;
 }
 
-.LogoContainer{
+.LogoContainer {
   height: 100px;
   display: flex;
   flex-direction: column;
@@ -24,29 +32,29 @@
   border: 1px solid purple;
 }
 
-.Logo{
+.Logo {
   height: 64px;
   width: 64px;
   border-radius: 100%;
   background-color: green;
 }
 
-.ChannelsList{
+.ChannelsList {
   flex-grow: 1;
-  overflow:hidden;
+  overflow: hidden;
 }
 
-.ChannelsListContainer{
+.ChannelsListContainer {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
 }
 
-.ChannelsListContainer::-webkit-scrollbar{
-  display:none;
+.ChannelsListContainer::-webkit-scrollbar {
+  display: none;
 }
 
-.Channel{
+.Channel {
   height: 32px;
   display: flex;
   flex-direction: row;
@@ -54,26 +62,25 @@
   border: 1px solid black;
 }
 
-.ChannelTitle{
-  
+.ChannelTitle {
 }
 
-.ChannelUserCount{
+.ChannelUserCount {
   height: 16px;
   width: 16px;
   border: 1px solid black;
   border-radius: 10%;
 }
-.ChannelJoinButton{
+.ChannelJoinButton {
   text-decoration: none;
 }
 
-.AddNetwork{
+.AddNetwork {
   height: 30px;
   border: 1px solid black;
 }
 
-.Room{
+.Room {
   display: inline-block;
   flex-grow: 1;
   border: 1px solid blue;
@@ -81,23 +88,26 @@
   flex-direction: column;
 }
 
-.Room-Title{
+.Room-Title {
   height: 40px;
   width: 100%;
   border: 1px solid turquoise;
 }
 
-.Main{
+.Main {
   height: calc(100% - 80px);
   display: flex;
   flex-direction: row;
 }
-
 .MessageList{
+
+}
+.Messages {
   height: 100%;
-  flex-grow:1;
+  flex-grow: 1;
   border: 1px solid yellow;
 }
+
 
 .MessageContainer{
   width: 100%;
@@ -117,7 +127,7 @@
  padding:2px 0px 0px 3px;
 }
 
-.UserAvatar{
+.UserAvatar {
   height: 35px;
   width: 35px;
   border-radius: 100%;
@@ -128,30 +138,30 @@
   justify-content: center;
 }
 
-.MessageTitle{
+.MessageTitle {
   height: 15px;
   width: 100%;
   display: flex;
   flex-direction: row;
-  border: 1px solid blueviolet ;
-  padding: 3px 0px 0px 7px ;  
+  border: 1px solid blueviolet;
+  padding: 3px 0px 0px 7px;
 }
-.UserName{
-  color:slateblue;
+.UserName {
+  color: slateblue;
   font-size: 14px;
 }
-.TimeSpan{
+.TimeSpan {
   color: grey;
   font-size: 13px;
   padding-left: 10px;
   opacity: 0.5;
 }
-.MessageContent{
+.MessageContent {
   display: flex;
   flex-direction: column;
-  padding: 3px 0px 0px 7px ;  
+  padding: 3px 0px 0px 7px;
 }
-.Online-Users{
+.Online-Users {
   height: 100%;
   width: 150px;
   border: 1px solid orange;
@@ -159,34 +169,34 @@
   flex-direction: column;
 }
 
-.OnlineUsersTitle{
+.OnlineUsersTitle {
   height: 40px;
   border: 1px solid yellowgreen;
   text-align: center;
   padding-top: 5px;
 }
 
-.UserList{
+.UserList {
   flex-grow: 1;
-  overflow:hidden;
+  overflow: hidden;
 }
 
-.UserListContainer{
+.UserListContainer {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
 }
-.UserListContainer::-webkit-scrollbar{
-  display:none;
+.UserListContainer::-webkit-scrollbar {
+  display: none;
 }
-.User{
+.User {
   height: 30px;
   display: flex;
   border: 1px solid black;
   align-items: center;
   padding-left: 5px;
 }
-.Message-Input{
+.Message-Input {
   height: 40px;
   border: 1px solid pink;
 }
