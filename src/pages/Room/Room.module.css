@@ -63,6 +63,7 @@
 }
 
 .ChannelTitle {
+  margin-left: 5px;
 }
 
 .ChannelUserCount {
@@ -76,7 +77,7 @@
 }
 
 .AddNetwork {
-  height: 30px;
+  height: 40px;
   border: 1px solid black;
 }
 
