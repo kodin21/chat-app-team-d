@@ -1,4 +1,4 @@
-import { db } from "../firebase/config";
+import {db} from '../config/firebase'
 
 function AddMessage(roomName, userName, message) {
   db.collection("messages")

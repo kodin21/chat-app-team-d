@@ -1,4 +1,4 @@
-import {db} from '../firebase/config'
+import {db} from '../config/firebase'
 
 function AddUser(userName) {
     let randomColor = Math.floor(Math.random()*16777215).toString(16);

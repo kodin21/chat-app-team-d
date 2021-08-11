@@ -1,4 +1,4 @@
-import {db} from '../firebase/config'
+import {db} from '../config/firebase'
 
 function CreateChatRoom(roomName) {
     const fixedRoomName = roomName.replace(' ', '-');

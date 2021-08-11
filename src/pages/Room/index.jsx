@@ -23,7 +23,7 @@ function Room() {
         <div className={styles.Room}>
           <div className={styles["Room-Title"]}>{"{channel.title}"}</div>
           <div className={styles.Main}>
-            <div className={styles.MessageList}></div>
+            <div className={styles.MessageList}>
             <div className={styles.MessageContainer}>
               <div className={styles.Message}>
                 <div className={styles.UserAvatar}> AC</div>
@@ -35,6 +35,7 @@ function Room() {
                   lorem
                 </div>
               </div>
+            </div>
             </div>
             <div className={styles["Online-Users"]}>
               <div className={styles.OnlineUsersTitle}>Online Users</div>

@@ -1,8 +1,9 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import { Redirect, Router } from "@reach/router";
 import "./App.css";
 import Room from "./pages/Room";
 import Login from "./pages/Login";
-import { Redirect, Router } from "@reach/router";
+
 
 function App() {
   const [username, setUsername] = useState(null);
