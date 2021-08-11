@@ -1,12 +1,3 @@
-.AppBackground {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .App {
   height: 80%;
   width: 90%;

@@ -3,7 +3,7 @@ import styles from "./Room.module.css";
 
 function Room() {
   return (
-    <div className={styles.AppBackground}>
+    <div className="AppBackground">
       <div className={styles.App}>
         <div className={styles["Left-Sidebar"]}>
           <div className={styles.LogoContainer}>

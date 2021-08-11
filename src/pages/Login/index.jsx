@@ -5,7 +5,7 @@ import styles from "./Login.module.css";
 
 function Login({ setUsername }) {
   return (
-    <div className={styles.AppBackground}>
+    <div className="AppBackground">
       <div className={styles.Login}>
         <div className={styles.LoginBox}>
           <div className={styles.LoginBoxTitle}>{"{box.title}"}</div>
