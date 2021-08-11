@@ -4,7 +4,7 @@ function CreateChatRoom(roomName) {
     const fixedRoomName = roomName.replace(' ', '-');
 
     db.collection("chat-rooms").add({
-        connectedUsers:[],
+        connectedUsers: [],
         displayName: roomName,
         roomName: fixedRoomName
     })
