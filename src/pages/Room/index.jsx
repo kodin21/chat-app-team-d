@@ -20,6 +20,7 @@ function Room() {
           </div>
           <div className={styles.AddNetwork}>AddNetwork</div>
         </div>
+<<<<<<< HEAD
         </div>  
         <div className={styles.Room}>
         <div className={styles["Room-Title"]}>{"{channel.title}"}</div>
@@ -34,6 +35,20 @@ function Room() {
                 <div className={styles.TimeSpan}>Time Span</div>
               </div>
                  message
+=======
+        <div className={styles.Room}>
+          <div className={styles["Room-Title"]}>{"{channel.title}"}</div>
+          <div className={styles.Main}>
+            <div className={styles.Messages}>
+              <div className={styles.Message}>
+                <div className={styles.UserAvatar}> AC</div>
+                <div className={styles.MessageContent}>
+                  <div className={styles.MessageTitle}>
+                    <div className={styles.UserName}>Username</div>
+                    <div className={styles.TimeSpan}>Time Span</div>
+                  </div>
+                  message
+>>>>>>> 2250c3ffc80564f42aaeb04c832ed47c79392ede
                 </div>
               </div>
             </div>
