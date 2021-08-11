@@ -3,7 +3,7 @@ import { db } from "../firebase/config";
 function AddMessage(roomName, userName, message) {
   db.collection("messages")
     .add({
-      message: "",
+      message: message,
       room_name: roomName,
       user: userName,
     })
