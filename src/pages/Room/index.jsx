@@ -23,20 +23,26 @@ function Room() {
         <div className={styles.Room}>
           <div className={styles["Room-Title"]}>{"{channel.title}"}</div>
           <div className={styles.Main}>
-            <div className={styles.MessageList}>
-            <div className={styles.MessageContainer}>
-              <div className={styles.Message}>
-                <div className={styles.UserAvatar}> AC</div>
-                <div className={styles.MessageContent}>
-                  <div className={styles.MessageTitle}>
-                    <div className={styles.UserName}>Username</div>
-                    <div className={styles.TimeSpan}>Time Span</div>
+            <div className={styles.Messages}>
+              <div className={styles.MessageList}>
+                <div className={styles.Message}>
+                  <div className={styles.UserAvatarContainer}>
+                    <div className={styles.UserAvatar}>
+                      A
+                    </div>
                   </div>
-                  lorem
+                  <div className={styles.MessageBody}>
+                    <div className={styles.MessageTitle}>
+                      <span className={styles.Username}>Username</span>
+                      <span className={styles.TimeStamp}>22&apos;Aug - 12:50</span>
+                    </div>
+                    <span className={styles.MessageContent}>
+                      Message
+                    </span>
+                  </div>
                 </div>
-              </div>
-              </div>
-            </div>
+              </div>              
+            </div>            
             <div className={styles["Online-Users"]}>
               <div className={styles.OnlineUsersTitle}>Online Users</div>
               <div className={styles.UserList}>

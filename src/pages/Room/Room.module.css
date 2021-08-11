@@ -82,7 +82,7 @@
 
 .Room {
   display: inline-block;
-  flex-grow: 1;
+  width: calc(100% - 200px);
   border: 1px solid blue;
   display: flex;
   flex-direction: column;
@@ -96,34 +96,51 @@
 
 .Main {
   height: calc(100% - 80px);
+  width: 100%;
   display: flex;
   flex-direction: row;
 }
-.MessageList{
-}
+
 .Messages {
-  height: 100%;
-  flex-grow: 1;
-  border: 1px solid yellow;
+  width: calc(100% - 150px);
+  overflow: hidden;
 }
 
-.MessageContainer{
+.MessageContainer {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.MessageList {
+  height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-.MessageContainer::-webkit-scrollbar{
-  display:none;
+.MessageList::-webkit-scrollbar {
+  display: none;
 }
-
 
 .Message {
-  height: 40px;
-  border: 1px solid palegreen;
+  height: auto;
+  width: 95%;
+  border: 2px solid plum;
   display: flex;
-  padding: 2px 0px 0px 3px;
+  flex-direction: row;
+}
+
+.UserAvatarContainer {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
 }
 
 .UserAvatar {
@@ -133,33 +150,43 @@
   background-color: salmon;
   border: 1px solid sandybrown;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.MessageBody {
+  width: calc(100% - 50px);
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
 .MessageTitle {
-  height: 15px;
+  height: 20px;
   width: 100%;
   display: flex;
   flex-direction: row;
-  border: 1px solid blueviolet;
-  padding: 3px 0px 0px 7px;
+  align-items: center;
+  border: 1px solid black;
 }
-.UserName {
+
+.Username {
   color: slateblue;
   font-size: 14px;
 }
-.TimeSpan {
+
+.TimeStamp {
   color: grey;
   font-size: 13px;
-  padding-left: 10px;
-  opacity: 0.5;
+  margin-left: 5px;
 }
+
 .MessageContent {
   display: flex;
-  flex-direction: column;
-  padding: 3px 0px 0px 7px;
+  flex-wrap: wrap;
 }
+
 .Online-Users {
   height: 100%;
   width: 150px;
