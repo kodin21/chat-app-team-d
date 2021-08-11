@@ -20,20 +20,19 @@ function Room() {
           </div>
           <div className={styles.AddNetwork}>AddNetwork</div>
         </div>
-        </div>  
         <div className={styles.Room}>
-        <div className={styles["Room-Title"]}>{"{channel.title}"}</div>
-        <div className={styles.Main}>
-          <div className={styles.MessageList}></div>
-          <div className={styles.MessageContainer}>
-            <div className={styles.Message}>
-              <div className={styles.UserAvatar}> AC</div>
-               <div className={styles.MessageContent}>
-                <div className={styles.MessageTitle}>
-                <div className={styles.UserName}>Username</div>
-                <div className={styles.TimeSpan}>Time Span</div>
-              </div>
-                 message
+          <div className={styles["Room-Title"]}>{"{channel.title}"}</div>
+          <div className={styles.Main}>
+            <div className={styles.MessageList}></div>
+            <div className={styles.MessageContainer}>
+              <div className={styles.Message}>
+                <div className={styles.UserAvatar}> AC</div>
+                <div className={styles.MessageContent}>
+                  <div className={styles.MessageTitle}>
+                    <div className={styles.UserName}>Username</div>
+                    <div className={styles.TimeSpan}>Time Span</div>
+                  </div>
+                  lorem
                 </div>
               </div>
             </div>
@@ -49,6 +48,7 @@ function Room() {
           <div className={styles["Message-Input"]}>Message Input</div>
         </div>
       </div>
+    </div>
   );
 }
 
