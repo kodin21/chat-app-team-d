@@ -1,0 +1,43 @@
+.Login{
+  height: 80%;
+  width: 90%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
+
+.LoginBox{
+  height: 200px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.LoginBoxTitle{
+  border: 1px solid red;
+  height: 20%;
+}
+
+.LoginBoxMain{
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoginBoxMain span{
+  margin-bottom: 10px;
+}
+
+.LoginBoxMain input{
+  height: 25px;
+}
+
+.LoginBoxMain button{
+  margin-top: 15px;
+  width: 50px;
+}
