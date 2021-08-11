@@ -1,9 +1,16 @@
 import {db} from '../config/firebase'
 
+const getData = async () => {
+  const snap = await db.collection("chat-rooms").get();
+  return snap.docs.map(doc=>doc.data())
+}
+
   function AddUserToRoom(roomName,userName){
     // Create a reference to the SF doc.
-    const sfDocRef = db.collection("chat-rooms").filter(doc => doc.displayName === roomName);
-    console.log(sfDocRef);
+    const sfDocRef = [];
+    // db.collection("chat-rooms").get().then(doc => console.log(doc))
+    getData().then(data => console.log(data));
+    // .filter(doc => doc.displayName === roomName);(
 // Uncomment to initialize the doc.
 // sfDocRef.set({ population: 0 });
 
