@@ -49,7 +49,6 @@ function Room() {
           <div className={styles["Message-Input"]}>Message Input</div>
         </div>
       </div>
-    </div>
   );
 }
 
