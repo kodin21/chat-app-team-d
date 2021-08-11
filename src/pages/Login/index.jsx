@@ -1,6 +1,7 @@
 import React from "react";
-import styles from "./Login.module.css";
 import { navigate } from "@reach/router";
+import styles from "./Login.module.css";
+
 
 function Login({ setUsername }) {
   return (
