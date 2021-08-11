@@ -1,5 +1,4 @@
 import { db } from "../firebase/config";
-import React, { useEffect, useState } from "react";
 
 function AddMessage(roomName, userName, message) {
   db.collection("messages")
@@ -14,8 +13,6 @@ function AddMessage(roomName, userName, message) {
     .catch((error) => {
       console.error("Error adding document: ", error);
     });
-
-  return <div></div>;
 }
 
 export default AddMessage;
