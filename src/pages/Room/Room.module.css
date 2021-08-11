@@ -100,18 +100,12 @@
   flex-direction: row;
 }
 .MessageList{
-
-<<<<<<< HEAD
 }
-=======
->>>>>>> 2250c3ffc80564f42aaeb04c832ed47c79392ede
 .Messages {
   height: 100%;
   flex-grow: 1;
   border: 1px solid yellow;
 }
-
-<<<<<<< HEAD
 
 .MessageContainer{
   width: 100%;
@@ -124,18 +118,12 @@
   display:none;
 }
 
-.Message{
- height: 40px;
- border: 1px solid palegreen;
- display: flex;
- padding:2px 0px 0px 3px;
-=======
+
 .Message {
   height: 40px;
   border: 1px solid palegreen;
   display: flex;
   padding: 2px 0px 0px 3px;
->>>>>>> 2250c3ffc80564f42aaeb04c832ed47c79392ede
 }
 
 .UserAvatar {
