@@ -7,10 +7,11 @@ function Login({ setUsername }) {
   return (
     <div className="AppBackground">
       <div className={styles.Login}>
+        <div className={styles.Logo}/>
         <div className={styles.LoginBox}>
-          <div className={styles.LoginBoxTitle}>{"{box.title}"}</div>
+          <div className={styles.LoginBoxTitle}>Join US!</div>
           <div className={styles.LoginBoxMain}>
-            <span>Kullancı Adı</span>
+            <span>Grab a username!</span>
             <input name="username" type="text" />
             <button
               type="button"
@@ -19,7 +20,7 @@ function Login({ setUsername }) {
                 navigate("rooms");
               }}
             >
-              Giriş
+              Login
             </button>
           </div>
         </div>

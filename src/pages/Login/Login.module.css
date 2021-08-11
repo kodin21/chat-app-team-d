@@ -6,18 +6,29 @@
   justify-content: center;
   align-items: center;
 }
+.Logo{
+  height: 250px;
+  width: 250px;
+  background-image: url("../../img/logo-500x500.png");
+  background-repeat: no-repeat;
+  background-size: 250px 250px;
+}
 
 .LoginBox {
   height: 200px;
   width: 350px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
-  border: 2px solid #bf214b;
+  background-color: #22231f;
   border-radius: 10px;
 }
 
 .LoginBoxTitle {
-  border: 1px solid red;
+  color: white;
+  background-color: #b11e45;
+  border-radius: 5px;
+  font-weight: bold;
   height: 20%;
   display: flex;
   justify-content: center;
@@ -34,28 +45,28 @@
 
 .LoginBoxMain span {
   margin-bottom: 10px;
-  font: 17px Helvetica;
-  color: #555252;
+  font-size: 17px;
+  color: white;
 }
 
 .LoginBoxMain input {
   height: 25px;
-  border: 1px solid #8d8c8c;
   border-radius: 5px;
+  border: none;
+  outline: none;
 }
 
 .LoginBoxMain button {
   margin-top: 15px;
-  margin-left: 95px;
-  border: none;
   border-radius: 5px;
   height: 30px;
   width: 80px;
-  background-color: #bf214b;
-  color: #fff;
-  font: 15px Helvetica;
+  background-color: #b11e45;
+  color: white;
+  font-size: 15px;
+  border: none;
 }
 .LoginBoxMain button:hover {
-  box-shadow: 0 1px 1px 0 #8d8c8c, 0 1px 1px 0 #8d8c8c;
-  background-color: #b11e45;
+  box-shadow: 0 1px 1px 0 #b1b1b1, 0 1px 1px 0 #b1b1b1;
+  background-color: #ee275c;
 }

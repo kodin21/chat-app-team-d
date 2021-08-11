@@ -7,21 +7,35 @@ function Room() {
       <div className={styles.App}>
         <div className={styles["Left-Sidebar"]}>
           <div className={styles.LogoContainer}>
-            <div className={styles.Logo}>Logo</div>
+            <div className={styles.Logo}/>
           </div>
           <div className={styles.ChannelsList}>
             <div className={styles.ChannelsListContainer}>
-              <div className={styles.Channel}>
+              <div className={styles.SelectedChannel}>
                 <span className={styles.ChannelTitle}>Title</span>
-                <div className={styles.ChannelUserCount}>22 </div>
-                <span className={styles.ChannelJoinButton}>Join</span>
+                <div className={styles.ChannelConnection}>
+                  <span className={styles.ChannelUserCount}>22 </span>
+                  <span className={styles.ChannelJoinButton}>Join</span>
+                </div>
+              </div>
+              <div className={styles.Channel}>
+                <span className={styles.ChannelTitle}>Title - 2</span>
+                <div className={styles.ChannelConnection}>
+                  <span className={styles.ChannelUserCount}>11 </span>
+                  <span className={styles.ChannelJoinButton}>Join</span>
+                </div>
               </div>
             </div>
           </div>
-          <div className={styles.AddNetwork}>AddNetwork</div>
+          <div className={styles.AddNetwork}>
+            <span>Add Network</span>
+            <span className={styles.AddNetworkButton}>+</span>
+          </div>
         </div>
         <div className={styles.Room}>
-          <div className={styles["Room-Title"]}>{"{channel.title}"}</div>
+          <div className={styles.RoomHeader}>
+            <span className={styles.RoomTitle}>{"{channel.title}"}</span>
+          </div>
           <div className={styles.Main}>
             <div className={styles.Messages}>
               <div className={styles.MessageList}>
@@ -44,15 +58,23 @@ function Room() {
               </div>              
             </div>            
             <div className={styles["Online-Users"]}>
-              <div className={styles.OnlineUsersTitle}>Online Users</div>
-              <div className={styles.UserList}>
-                <div className={styles.UserListContainer}>
-                  <div className={styles.User}>User</div>
+              <div className={styles.OnlineUsersTitle}>22 people here</div>
+              <div className={styles.UserListContainer}>
+                <div className={styles.UserList}>
+                  <div className={styles.User}>
+                    <span className={styles.UserPointer}>-</span>
+                    <span className={styles.Username}>User - 1</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className={styles["Message-Input"]}>Message Input</div>
+          <div className={styles.MessageInputContainer}>
+            <input type="text" className={styles.MessageInput} placeholder="Write down your message"/>
+            <div className={styles.MessageSendButtonContainer}>
+            <button type="button" className={styles.MessageSendButton}>Send</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

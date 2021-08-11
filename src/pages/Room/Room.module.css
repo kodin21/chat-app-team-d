@@ -1,17 +1,20 @@
 .App {
   height: 80%;
   width: 90%;
-  border: 1px solid black;
   display: flex;
   flex-direction: row;
+  border-radius: 10px;
+  box-shadow: 0 12px 16px 0  #b1b1b1,  0 17px 50px 0  #b1b1b1;
 }
 
 .Left-Sidebar {
   width: 200px;
   height: 100%;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
+  color: white;
+  background-color: #191918;
+  border-radius: 10px 0 0 10px;
 }
 
 .LogoContainer {
@@ -20,14 +23,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid purple;
 }
 
 .Logo {
   height: 64px;
   width: 64px;
   border-radius: 100%;
-  background-color: green;
+  background-image: url("../../img/logo.png");
+  background-size: 65px 65px;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .ChannelsList {
@@ -46,22 +54,52 @@
 }
 
 .Channel {
-  height: 32px;
+  height: 48px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-  border: 1px solid black;
+  background-color: #2e2e2e;
+}
+
+.SelectedChannel {
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #535353;
+}
+
+.Channel:hover {
+  background-color: #4b4b4b;
 }
 
 .ChannelTitle {
-  margin-left: 5px;
+  margin-left: 10px;
+}
+
+.ChannelConnection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10px;
 }
 
 .ChannelUserCount {
-  height: 16px;
-  width: 16px;
-  border: 1px solid black;
-  border-radius: 10%;
+  height: 20px;
+  width: 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #b11e45b0;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 25px;
+  margin-right: 10px;
 }
 .ChannelJoinButton {
   text-decoration: none;
@@ -69,21 +107,37 @@
 
 .AddNetwork {
   height: 40px;
-  border: 1px solid black;
+  border-top: 2px solid rgb(75, 75, 75);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.AddNetworkButton {
+  font-size: 20px;
 }
 
 .Room {
   display: inline-block;
   width: calc(100% - 200px);
-  border: 1px solid blue;
+  border-radius: 0 10px 10px 0;
+  background-color: white;
   display: flex;
   flex-direction: column;
 }
 
-.Room-Title {
+.RoomHeader {
   height: 40px;
   width: 100%;
-  border: 1px solid turquoise;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 2px solid rgb(219, 219, 219);
+}
+
+.RoomTitle {
+  margin-left: 10px;
 }
 
 .Main {
@@ -120,7 +174,6 @@
 .Message {
   height: auto;
   width: 95%;
-  border: 2px solid plum;
   display: flex;
   flex-direction: row;
 }
@@ -131,8 +184,6 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  border: 1px solid black;
 }
 
 .UserAvatar {
@@ -149,7 +200,6 @@
 
 .MessageBody {
   width: calc(100% - 50px);
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
 }
@@ -160,7 +210,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid black;
 }
 
 .Username {
@@ -182,39 +231,86 @@
 .Online-Users {
   height: 100%;
   width: 150px;
-  border: 1px solid orange;
   display: flex;
   flex-direction: column;
+  border-left: 2px solid rgb(219,219,219);
 }
 
 .OnlineUsersTitle {
   height: 40px;
-  border: 1px solid yellowgreen;
-  text-align: center;
-  padding-top: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5px;
+  font-weight: 600;
+  border-bottom: 2px solid rgb(235, 233, 233)
 }
 
-.UserList {
+.UserListContainer {
   flex-grow: 1;
   overflow: hidden;
 }
 
-.UserListContainer {
+.UserList {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
 }
-.UserListContainer::-webkit-scrollbar {
+.UserList::-webkit-scrollbar {
   display: none;
 }
 .User {
   height: 30px;
   display: flex;
-  border: 1px solid black;
+  flex-direction: row;
   align-items: center;
   padding-left: 5px;
 }
-.Message-Input {
+
+.User .Username{
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.MessageInputContainer {
   height: 40px;
-  border: 1px solid pink;
+  border-top: 2px solid rgb(219,219,219);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.MessageInput{
+  height: 90%;
+  width: calc(100% - 150px);
+  padding-left: 10px;
+  box-direction: none;
+  border: none;
+  outline: none;
+}
+
+.MessageSendButtonContainer{
+  height: 100%;
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.MessageSendButton{
+  height: 80%;
+  width: 100px;
+  border: none;
+  border-radius: 5px;;
+  background-color: #b11e45;
+  color:white;
+  cursor: pointer;
+}
+.MessageSendButton:hover{
+  box-shadow: 0 1px 1px 0 #b1b1b1, 0 1px 1px 0 #b1b1b1;
+  background-color: #ee275c;
 }
