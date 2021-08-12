@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import { AddUser } from '../../../services/fireStore';
+// import { AddUser } from '../../../services/fireStore';
 import styles from '../Login.module.css';
 
 function LoginBox({ setUsername }) {
@@ -9,7 +9,7 @@ function LoginBox({ setUsername }) {
 
   const handleAddUser = () => {
     // Create user with username into database
-    AddUser(inputRef.current.value);
+    // AddUser(inputRef.current.value);
     // Set local username for next logins
     setUsername('test');
     // Navigate router to rooms
