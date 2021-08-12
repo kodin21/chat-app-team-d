@@ -1,7 +1,7 @@
 import React from "react";
 import { navigate } from "@reach/router";
 import styles from "./Login.module.css";
-import DeleteUserFromRoom from "../../databaseOperations/DeleteUserFromRoom";
+import ReadUsersFromRoom from "../../databaseOperations/ReadUsersFromRoom";
 
 
 function Login({ setUsername }) {
@@ -16,7 +16,7 @@ function Login({ setUsername }) {
             <button
               type="button"
               onClick={() => {
-                DeleteUserFromRoom("x","fuat");
+                ReadUsersFromRoom("general");
                 setUsername("test");
                 navigate("rooms");
               }}
