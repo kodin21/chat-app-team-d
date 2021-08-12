@@ -48,7 +48,8 @@ export function AddUser(userName) {
   usersRef
     .add({
       name: userName,
-      color: randomColor,
+      id: idfier(userName),
+      color: randomColor(),
     })
     .then((docRef) => {
       console.log('User written with ID: ', docRef.id);

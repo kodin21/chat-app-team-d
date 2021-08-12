@@ -5,4 +5,7 @@
  */
 const idfier = (sentence) => sentence.toLowerCase().trim().replace(' ', '-');
 
+
+export const uIdfier = (wordblock) => wordblock.toLowerCase().trim().replace(' ', '-'); 
+
 export default idfier;
