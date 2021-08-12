@@ -1,6 +1,7 @@
 import React from 'react'
 import {useParams} from "react-router-dom";
 import styles from "./Room.module.css";
+import MessageInput from "./MessageInput";
 import RoomHeader from "./RoomHeader";
 
 function Room() {
@@ -41,12 +42,7 @@ function Room() {
         </div>
       </div>
     </div>
-    <div className={styles.MessageInputContainer}>
-      <input type="text" className={styles.MessageInput} placeholder="Write down your message"/>
-      <div className={styles.MessageSendButtonContainer}>
-      <button type="button" className={styles.MessageSendButton}>Send</button>
-      </div>
-    </div>
+    <MessageInput />
   </div>
   )
 }
