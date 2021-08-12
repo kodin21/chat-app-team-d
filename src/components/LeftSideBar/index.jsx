@@ -4,32 +4,27 @@ import AddNetwork from './AddNetwork';
 import Channel from './Channel';
 import Logo from './Logo';
 
-function LeftSideBar() {
-  const [selectedChannel, setSelectedChannel] = useState('Title');
+function LeftSideBar({ roomsData }) {
+  const [selectedChannel, setSelectedChannel] = useState('general');
 
   return (
     <div className={styles['Left-Sidebar']}>
       <Logo />
       <div className={styles.ChannelsList}>
         <div className={styles.ChannelsListContainer}>
-          <Channel
-            {...{
-              channelTitle: 'Title',
-              channelUserCount: 22,
-              channelId: 'title',
-              selectedChannel,
-              setSelectedChannel,
-            }}
-          />
-           <Channel
-            {...{
-              channelTitle: 'Title - 2',
-              channelUserCount: 11,
-              channelId: 'title-2',
-              selectedChannel,
-              setSelectedChannel,
-            }}
-          />
+          {roomsData?.length > 0 &&
+            roomsData.map((room) => (
+              <Channel
+                key={room.id}
+                {...{
+                  channelTitle: room.data.displayName,
+                  channelUserCount: room.data.connectedUsers.length,
+                  channelId: room.data.roomName,
+                  selectedChannel,
+                  setSelectedChannel,
+                }}
+              />
+            ))}
         </div>
       </div>
       <AddNetwork />

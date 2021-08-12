@@ -3,16 +3,16 @@ import React from 'react';
 import styles from '../LeftSideBar.module.css';
 
 function Channel({
-  channelTitle,
-  channelUserCount,
-  channelId,
+  channelTitle="Title",
+  channelUserCount=0,
+  channelId="title",
   selectedChannel,
   setSelectedChannel,
 }) {
   return (
     <div
       id={channelId}
-      className={selectedChannel === channelTitle ? styles.SelectedChannel : styles.Channel}
+      className={selectedChannel === channelId ? styles.SelectedChannel : styles.Channel}
     >
       <span className={styles.ChannelTitle}>{channelTitle}</span>
       <div className={styles.ChannelConnection}>
@@ -22,7 +22,7 @@ function Channel({
           tabIndex="0"
           role="button"
           onClick={() => {
-            setSelectedChannel(channelTitle);
+            setSelectedChannel(channelId);
           }}
         >
           Join
