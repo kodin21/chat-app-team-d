@@ -1,7 +1,10 @@
 import React from "react";
+import {useParams} from "react-router-dom";
 import styles from "./Room.module.css";
 
 function Room() {
+  const { roomId } = useParams();
+
   return (
     <div className="AppBackground">
       <div className={styles.App}>
@@ -34,7 +37,7 @@ function Room() {
         </div>
         <div className={styles.Room}>
           <div className={styles.RoomHeader}>
-            <span className={styles.RoomTitle}>{"{channel.title}"}</span>
+            <span className={styles.RoomTitle}>{roomId}</span>
           </div>
           <div className={styles.Main}>
             <div className={styles.Messages}>

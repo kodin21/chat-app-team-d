@@ -1,9 +1,11 @@
 import React from "react";
-import { navigate } from "@reach/router";
+import { useHistory } from "react-router-dom";
 import styles from "./Login.module.css";
 
 
 function Login({ setUsername }) {
+  const history = useHistory();
+
   return (
     <div className="AppBackground">
       <div className={styles.Login}>
@@ -17,7 +19,7 @@ function Login({ setUsername }) {
               type="button"
               onClick={() => {
                 setUsername("test");
-                navigate("rooms");
+                history.push("rooms");
               }}
             >
               Login
