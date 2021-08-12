@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import Room from './pages/Room';
+import Rooms from './pages/Rooms';
 import Login from './pages/Login';
 
 
@@ -17,8 +17,8 @@ function App() {
         <Route path="/rooms" exact>
           <Redirect to="/room/general" />
         </Route>
-        <Route path="/room/:roomId" exact>
-          <Room />
+        <Route path="/room">
+          <Rooms />
         </Route>
         <Route path="*">
           <span>404</span>
