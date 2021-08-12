@@ -53,7 +53,7 @@ function Room({ roomsData }) {
           </div>
         </div>
       </div>
-      <MessageInput />
+      <MessageInput {...{roomId: filteredRoomData.id}} />
     </div>
   );
 }
