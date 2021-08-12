@@ -18,14 +18,13 @@ const PlaceholderData = {
   },
 };
 
-function Room({ roomsData }) {
+function Room({ roomsData, userName }) {
   const { roomId } = useParams();
   const filteredRoomData =
     roomsData.length > 0
       ? roomsData.filter((room) => room.data.roomName === roomId)[0]
       : PlaceholderData;
 
-  console.log(filteredRoomData);
   return (
     <div className={styles.Room}>
       <RoomHeader title={filteredRoomData.data.displayName} />
@@ -47,13 +46,13 @@ function Room({ roomsData }) {
           <div className={styles.UserListContainer}>
             <div className={styles.UserList}>
               {filteredRoomData?.data?.connectedUsers?.map((user) => (
-                <OnlineUser key={user} {...{ userName: user, userColor: randomColor() } }/>
+                <OnlineUser key={user} {...{ userName: user, userColor: randomColor() }} />
               ))}
             </div>
           </div>
         </div>
       </div>
-      <MessageInput {...{roomId: filteredRoomData.id}} />
+      <MessageInput {...{ roomId: filteredRoomData.id, userName }} />
     </div>
   );
 }

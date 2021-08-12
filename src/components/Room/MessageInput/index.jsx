@@ -2,11 +2,11 @@ import React, { memo, useRef } from 'react';
 import { AddMessage } from '../../../services/fireStore';
 import styles from '../Room.module.css';
 
-function MessageInput({ roomId }) {
+function MessageInput({ roomId, userName }) {
   const inputRef = useRef();
 
   const handleAddMessage = (message) => {
-    AddMessage(roomId, "mahmut", message);
+    AddMessage(roomId, userName, message);
   };
 
   return (

@@ -5,7 +5,7 @@ import styles from './Rooms.module.css';
 import LeftSideBar from '../../components/LeftSideBar';
 import Room from '../../components/Room';
 
-function Rooms() {
+function Rooms({userName}) {
   const match = useRouteMatch();
   const [roomsData, setRoomsData] = useState([]);
 
@@ -20,7 +20,7 @@ function Rooms() {
         <LeftSideBar {...{ roomsData }} />
         <Switch>
           <Route path={`${match.path}/:roomId`}>
-            <Room {...{ roomsData }} />
+            <Room {...{ roomsData, userName }} />
           </Route>
         </Switch>
       </div>
