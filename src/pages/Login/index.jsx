@@ -1,24 +1,23 @@
-import React from "react";
-import { navigate } from "@reach/router";
-import styles from "./Login.module.css";
-import ReadUsersFromRoom from "../../databaseOperations/ReadUsersFromRoom";
-
+import React from 'react';
+import { navigate } from '@reach/router';
+import styles from './Login.module.css';
+import { add } from '../../services/fireStore';
 
 function Login({ setUsername }) {
+  add();
   return (
     <div className={styles.AppBackground}>
       <div className={styles.Login}>
         <div className={styles.LoginBox}>
-          <div className={styles.LoginBoxTitle}>{"{box.title}"}</div>
+          <div className={styles.LoginBoxTitle}>{'{box.title}'}</div>
           <div className={styles.LoginBoxMain}>
             <span>Kullancı Adı</span>
             <input name="username" type="text" />
             <button
               type="button"
               onClick={() => {
-                ReadUsersFromRoom("general");
-                setUsername("test");
-                navigate("rooms");
+                setUsername('test');
+                navigate('rooms');
               }}
             >
               Giriş
