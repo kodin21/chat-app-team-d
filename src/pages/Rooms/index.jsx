@@ -5,6 +5,7 @@ import Room from "../../components/Room";
 
 function Rooms() {
   const match = useRouteMatch();
+  
   return (
     <div className="AppBackground">
       <div className={styles.App}>
@@ -31,8 +32,13 @@ function Rooms() {
             </div>
           </div>
           <div className={styles.AddNetwork}>
-            <span>Add Network</span>
-            <span className={styles.AddNetworkButton}>+</span>
+            <span>Add Room</span>
+            <button type="button" className={styles.AddNetworkButton}>
+              +
+            </button>
+            <div className={styles.AddRoomContainer}>
+            <input type="text" className={styles.PopupInput} id="popupInput" placeholder="New Room Name"/>
+            </div>
           </div>
         </div>
         <Switch>
