@@ -8,7 +8,7 @@ function OnlineUser({ userName, userColor }) {
       <span
         className={styles.Username}
         style={{
-          color: `${userColor}
+          color: `#${userColor}
         `,
         }}
       >

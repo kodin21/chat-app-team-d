@@ -11,16 +11,16 @@ function Rooms() {
 
   useEffect(() => {
     // Initiate rooms data subscription
-    SubscribeRoomsData(setRoomsData)
-  }, [])
+    SubscribeRoomsData(setRoomsData);
+  }, []);
 
   return (
     <div className="AppBackground">
       <div className={styles.App}>
-        <LeftSideBar {...{roomsData}} />
+        <LeftSideBar {...{ roomsData }} />
         <Switch>
           <Route path={`${match.path}/:roomId`}>
-            <Room />
+            <Room {...{ roomsData }} />
           </Route>
         </Switch>
       </div>
