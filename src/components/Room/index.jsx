@@ -1,14 +1,13 @@
 import React from 'react'
 import {useParams} from "react-router-dom";
 import styles from "./Room.module.css";
+import RoomHeader from "./RoomHeader";
 
 function Room() {
   const {roomId} = useParams();
   return (
     <div className={styles.Room}>
-    <div className={styles.RoomHeader}>
-      <span className={styles.RoomTitle}>{roomId}</span>
-    </div>
+    <RoomHeader roomTitle={roomId} />
     <div className={styles.Main}>
       <div className={styles.Messages}>
         <div className={styles.MessageList}>
