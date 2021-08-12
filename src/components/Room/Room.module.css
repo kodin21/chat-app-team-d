@@ -71,8 +71,7 @@
   height: 35px;
   width: 35px;
   border-radius: 100%;
-  background-color: salmon;
-  border: 1px solid sandybrown;
+  border: 1px solid #b11e45;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,7 +93,6 @@
 }
 
 .Username {
-  color: slateblue;
   font-size: 14px;
 }
 
