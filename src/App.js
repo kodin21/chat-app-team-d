@@ -1,9 +1,8 @@
-import './App.css';
 import React, { useState } from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Rooms from './pages/Rooms';
 import Login from './pages/Login';
-
 
 function App() {
   const [username, setUsername] = useState(null);
