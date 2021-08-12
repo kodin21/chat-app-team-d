@@ -1,4 +1,5 @@
 import React from 'react'
+import { CreateChatRoom } from '../../../../services/fireStore';
 import styles from '../../LeftSideBar.module.css';
 
 function AddRoom({setOpenAddMenu}) {
@@ -13,6 +14,7 @@ function AddRoom({setOpenAddMenu}) {
           event.stopPropagation();
         }}
         onKeyDown={(event)=>{
+          if(event.key === "Enter") CreateChatRoom(event.target.value);
           if(event.key === "Escape" || event.key === "Enter") {
             event.preventDefault();
             setOpenAddMenu(isOpen=>!isOpen);
