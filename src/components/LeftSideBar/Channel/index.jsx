@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import styles from '../LeftSideBar.module.css';
 
 function Channel({
@@ -9,6 +10,8 @@ function Channel({
   selectedChannel,
   setSelectedChannel,
 }) {
+  const history = useHistory();
+
   return (
     <div
       id={channelId}
@@ -22,7 +25,10 @@ function Channel({
           tabIndex="0"
           role="button"
           onClick={() => {
+            // Update selected channel
             setSelectedChannel(channelId);
+            // Navigate to room
+            history.push(channelId)
           }}
         >
           Join
