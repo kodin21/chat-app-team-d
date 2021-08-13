@@ -9,6 +9,16 @@
 ![Login](https://i.ibb.co/Mkb5Xwh/kodin-chat-login.png)
 ![Chat](https://i.ibb.co/Bqhbzh0/kodin-chat.png)
 
+## Contributers
+
+- [Merve Bacak](https://github.com/nmerveb)
+
+- [Fuat Eraslan](https://github.com/fuateraslann)
+
+- [Onur Şimşek](https://github.com/onursimsekkk)
+
+- [Mehmet Hilmi](https://github.com/movwf)
+
 ## Ödev Açıklama - Chat APP
 
 Birden çok odası bulunan, herkesin oda ekleyebildiği, herkesin anonim olarak herhangi bir odaya katılıp mesajlaşabildiği bir live chat app yapmanızı bekliyorum.
