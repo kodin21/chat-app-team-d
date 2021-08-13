@@ -14,6 +14,9 @@ function App() {
         <Route path="/" exact>
           { username ? <Redirect to="/rooms" /> : <Login {...{setUsername} } />}
         </Route> 
+        <Route path="/login" exact>
+          <Login {...{setUsername} } />
+        </Route>
         <Route path="/rooms" exact>
           <Redirect to="/room/general" />
         </Route>
