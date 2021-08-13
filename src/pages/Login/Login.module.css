@@ -1,0 +1,72 @@
+.Login {
+  height: 80%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Logo{
+  height: 250px;
+  width: 250px;
+  background-image: url("../../static/img/logo-500x500.png");
+  background-repeat: no-repeat;
+  background-size: 250px 250px;
+}
+
+.LoginBox {
+  height: 200px;
+  width: 350px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: #22231f;
+  border-radius: 10px;
+}
+
+.LoginBoxTitle {
+  color: white;
+  background-color: #b11e45;
+  border-radius: 5px;
+  font-weight: bold;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoginBoxMain {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoginBoxMain span {
+  margin-bottom: 10px;
+  font-size: 17px;
+  color: white;
+}
+
+.LoginBoxMain input {
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.LoginBoxMain button {
+  margin-top: 15px;
+  border-radius: 5px;
+  height: 30px;
+  width: 80px;
+  background-color: #b11e45;
+  color: white;
+  font-size: 15px;
+  border: none;
+}
+.LoginBoxMain button:hover {
+  box-shadow: 0 1px 1px 0 #b1b1b1, 0 1px 1px 0 #b1b1b1;
+  background-color: #ee275c;
+}
