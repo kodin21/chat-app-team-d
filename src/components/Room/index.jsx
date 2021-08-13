@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { AddUserToRoom } from '../../services/fireStore';
 import randomColor from '../../utils/randomColor';
 import styles from './Room.module.css';
 import OnlineUsersCount from './OnlineUsersCount';
@@ -24,6 +25,12 @@ function Room({ roomsData, userName }) {
     roomsData.length > 0
       ? roomsData.filter((room) => room.data.roomName === roomId)[0]
       : PlaceholderData;
+
+  useEffect(() => {
+    // Add user to general room for first run
+    AddUserToRoom("general",userName);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className={styles.Room}>
