@@ -1,20 +1,18 @@
-import React from 'react'
+import React from "react";
 import styles from "./Login.module.css";
+import LoginBox from './LoginBox';
+import Logo from './Logo';
 
-function Login() {
+
+function Login({ setUsername }) {
   return (
-    <div className={styles.Login}>
-      <div className={styles.LoginBox}>
-        <div className={styles.LoginBoxTitle}>{"{box.title}"}</div>
-        <div className={styles.LoginBoxMain}>
-        <span>Kullancı Adı</span>
-        <input name="username"  type="text"/>
-        <button type="button"> Giriş</button>
-        </div>
-
+    <div className="AppBackground">
+      <div className={styles.Login}>
+        <Logo />
+        <LoginBox {...{setUsername}} />
       </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
