@@ -4,7 +4,8 @@
 
 [ :desktop_computer: Live Preview (preAlpha)](kodin-chat.netlify.app)
 
-Screenshots
+### Screenshots
+
 ![Login](https://i.ibb.co/Mkb5Xwh/kodin-chat-login.png)
 ![Chat](https://i.ibb.co/Bqhbzh0/kodin-chat.png)
 
