@@ -96,7 +96,7 @@ export function SubscribeMessages(roomId, setter) {
   const roomsRef = db.collection('chat-rooms');
   const messagesRef = roomsRef.doc(roomId).collection('messages');
 
-  messagesRef.orderBy('createdAt').onSnapshot((snapshot) => {
+  window.unsubscribe = messagesRef.orderBy('createdAt').onSnapshot((snapshot) => {
     setter(snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() })));
   });
 }
