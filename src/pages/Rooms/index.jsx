@@ -17,7 +17,7 @@ function Rooms({userName}) {
   return (
     <div className="AppBackground">
       <div className={styles.App}>
-        <LeftSideBar {...{ roomsData }} />
+        <LeftSideBar {...{ roomsData, userName }} />
         <Switch>
           <Route path={`${match.path}/:roomId`}>
             <Room {...{ roomsData, userName }} />

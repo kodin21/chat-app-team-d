@@ -4,8 +4,8 @@ import AddNetwork from './AddNetwork';
 import Channel from './Channel';
 import Logo from './Logo';
 
-function LeftSideBar({ roomsData }) {
-  const [selectedChannel, setSelectedChannel] = useState('general');
+function LeftSideBar({ roomsData, userName }) {
+  const [selectedChannel, setSelectedChannel] = useState({roomDBId:'general',  roomName:'general'});
 
   return (
     <div className={styles['Left-Sidebar']}>
@@ -20,6 +20,8 @@ function LeftSideBar({ roomsData }) {
                   channelTitle: room.data.displayName,
                   channelUserCount: room.data.connectedUsers.length,
                   channelId: room.data.roomName,
+                  channelDBId: room.id,
+                  clientUserName: userName,
                   selectedChannel,
                   setSelectedChannel,
                 }}
