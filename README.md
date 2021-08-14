@@ -2,7 +2,7 @@
 
 > Simple Chat Application w/ React & Firebase
 
-[ :desktop_computer: Live Preview (preAlpha)](kodin-chat.netlify.app)
+[ :desktop_computer: Live Preview (preAlpha)](https://kodin-chat.netlify.app)
 
 ### Screenshots
 
