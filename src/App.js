@@ -6,7 +6,7 @@ import Rooms from './pages/Rooms';
 import Login from './pages/Login';
 
 function App() {
-  const [clientUser, setClientUser] = useLocalStorage("username", "");
+  const [clientUser, setClientUser] = useLocalStorage("user-data", "");
   
   return (
     <Router>
