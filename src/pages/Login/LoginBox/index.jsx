@@ -32,7 +32,7 @@ function LoginBox({ setClientUser }) {
           type="text"
           ref={inputRef}
           onKeyDown={(event) => {
-            if (event.code === 'Enter') handleAddUser();
+            if (event.code === 'Enter' && event.target.value !== "") handleAddUser();
           }}
         />
         {/* If username input is empty dont disable click */}
