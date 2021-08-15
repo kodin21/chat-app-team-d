@@ -35,7 +35,7 @@ function Channel({
             // Update selected channel
             setSelectedChannel({roomDBId: channelDBId,roomName:channelId});
             // Navigate to room
-            history.push(channelId)
+            history.push(channelDBId)
           }}
         >
           Join

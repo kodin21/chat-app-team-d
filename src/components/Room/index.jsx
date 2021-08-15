@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { SubscribeMessages } from '../../services/fireStore';
 import { ConnectUser } from '../../services/realtimeDB';
 import randomColor from '../../utils/randomColor';
@@ -13,8 +13,8 @@ import Message from './Message';
 const PlaceholderData = {
   id: "general",
   data: {
-    displayName: 'Room.Title',
-    roomName: 'room',
+    displayName: 'General',
+    roomName: 'general',
     connectedUsers: [],
     createdAt: 1628675400,
   },
@@ -22,13 +22,28 @@ const PlaceholderData = {
 
 function Room({ roomsData, clientUser }) {
   const { roomId } = useParams();
+  const history = useHistory();
   const [messagesData, setMessagesData] = useState([]);
+
   const filteredRoomData =
     roomsData.length > 0
       ? roomsData.filter((room) => room.data.roomName === roomId)[0]
       : PlaceholderData;
 
+  console.log(filteredRoomData);
+  
+  // let roomData = roomsData.filter(room=> room.data.roomName === roomId);
+
+
+
+
+
   useEffect(() => {
+    // If roomId doesn't exists in database navigate to general
+    if(filteredRoomData.length === 0){
+      history.replace('room/general');
+    }
+
     // Connect user to real time database for listen
     const connectionRef = ConnectUser(clientUser, filteredRoomData.id)
 
