@@ -4,7 +4,7 @@ import AddNetwork from './AddNetwork';
 import Channel from './Channel';
 import Logo from './Logo';
 
-function LeftSideBar({ roomsData, userName }) {
+function LeftSideBar({ roomsData, clientUser }) {
   const [selectedChannel, setSelectedChannel] = useState({roomDBId:'general',  roomName:'general'});
 
   return (
@@ -21,7 +21,7 @@ function LeftSideBar({ roomsData, userName }) {
                   channelUserCount: room.data.connectedUsers.length,
                   channelId: room.data.roomName,
                   channelDBId: room.id,
-                  clientUserName: userName,
+                  clientUserName: clientUser.userName,
                   selectedChannel,
                   setSelectedChannel,
                 }}

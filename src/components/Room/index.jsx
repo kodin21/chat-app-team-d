@@ -19,7 +19,7 @@ const PlaceholderData = {
   },
 };
 
-function Room({ roomsData, userName }) {
+function Room({ roomsData, clientUser }) {
   const { roomId } = useParams();
   const [messagesData, setMessagesData] = useState([]);
   const filteredRoomData =
@@ -29,7 +29,7 @@ function Room({ roomsData, userName }) {
 
   useEffect(() => {
     // Add user to general room for first run
-    AddUserToRoom("general",userName);
+    AddUserToRoom("general",clientUser.userName);
   
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -80,7 +80,7 @@ function Room({ roomsData, userName }) {
           </div>
         </div>
       </div>
-      <MessageInput {...{ roomId: filteredRoomData.id, userName }} />
+      <MessageInput {...{ roomId: filteredRoomData.id, userName: clientUser.userName }} />
     </div>
   );
 }

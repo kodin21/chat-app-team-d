@@ -5,7 +5,7 @@ import styles from './Rooms.module.css';
 import LeftSideBar from '../../components/LeftSideBar';
 import Room from '../../components/Room';
 
-function Rooms({userName}) {
+function Rooms({clientUser}) {
   const match = useRouteMatch();
   // eslint-disable-next-line no-unused-vars
   const [roomsData, setRoomsData] = useState([]);
@@ -18,10 +18,10 @@ function Rooms({userName}) {
   return (
     <div className="AppBackground">
       <div className={styles.App}>
-        <LeftSideBar {...{ roomsData, userName }} />
+        <LeftSideBar {...{ roomsData, clientUser }} />
         <Switch>
           <Route path={`${match.path}/:roomId`}>
-            <Room {...{ roomsData, userName }} />
+            <Room {...{ roomsData, clientUser }} />
           </Route>
         </Switch>
       </div>

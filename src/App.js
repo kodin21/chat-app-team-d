@@ -21,7 +21,7 @@ function App() {
           <Redirect to="/room/general" />
         </Route>
         <Route path="/room">
-          <Rooms {...{userName: clientUser.userName}} />
+          <Rooms {...{clientUser}} />
         </Route>
         <Route path="*">
           <span>404</span>
