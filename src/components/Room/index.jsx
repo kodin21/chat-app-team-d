@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { AddUserToRoom, SubscribeMessages } from '../../services/fireStore';
+import { SubscribeMessages } from '../../services/fireStore';
 import { ConnectUser } from '../../services/realtimeDB';
 import randomColor from '../../utils/randomColor';
 import styles from './Room.module.css';
@@ -29,9 +29,6 @@ function Room({ roomsData, clientUser }) {
       : PlaceholderData;
 
   useEffect(() => {
-    // Add user to general room for first run
-    AddUserToRoom("general",clientUser.userName);
-
     // Connect user to real time database for listen
     const connectionRef = ConnectUser(clientUser, filteredRoomData.id)
 
@@ -65,14 +62,6 @@ function Room({ roomsData, clientUser }) {
                 />
               ))
             }
-            {/* <Message
-              {...{
-                userName: 'Test',
-                userColor: 'plum',
-                messageTime: "22'Aug 11:00",
-                messageContent: 'Hello World!',
-              }}
-            /> */}
           </div>
         </div>
         <div className={styles['Online-Users']}>
@@ -80,7 +69,7 @@ function Room({ roomsData, clientUser }) {
           <div className={styles.UserListContainer}>
             <div className={styles.UserList}>
               {filteredRoomData?.data?.connectedUsers?.map((user) => (
-                <OnlineUser key={user} {...{ userName: user, userColor: randomColor() }} />
+                <OnlineUser key={user} {...{ userName: user.userName, userColor: randomColor() }} />
               ))}
             </div>
           </div>

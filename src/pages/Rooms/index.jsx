@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-// import { SubscribeRoomsData } from '../../services/fireStore';
+import { SubscribeRoomsData } from '../../services/fireStore';
 import styles from './Rooms.module.css';
 import LeftSideBar from '../../components/LeftSideBar';
 import Room from '../../components/Room';
@@ -12,7 +12,7 @@ function Rooms({clientUser}) {
 
   useEffect(() => {
     // Initiate rooms data subscription
-    // SubscribeRoomsData(setRoomsData);
+    SubscribeRoomsData(setRoomsData);
   }, []);
 
   return (
