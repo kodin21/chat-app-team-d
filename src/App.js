@@ -6,22 +6,22 @@ import Rooms from './pages/Rooms';
 import Login from './pages/Login';
 
 function App() {
-  const [username, setUsername] = useLocalStorage("username", "");
+  const [clientUser, setClientUser] = useLocalStorage("username", "");
   
   return (
     <Router>
       <Switch>
         <Route path="/" exact>
-          { username ? <Redirect to="/rooms" /> : <Login {...{setUsername} } />}
+          { clientUser ? <Redirect to="/rooms" /> : <Login {...{setClientUser} } />}
         </Route> 
         <Route path="/login" exact>
-          <Login {...{setUsername} } />
+          <Login {...{setClientUser} } />
         </Route>
         <Route path="/rooms" exact>
           <Redirect to="/room/general" />
         </Route>
         <Route path="/room">
-          <Rooms {...{userName: username}} />
+          <Rooms {...{userName: clientUser.userName}} />
         </Route>
         <Route path="*">
           <span>404</span>
