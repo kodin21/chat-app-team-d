@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AddUserToRoom, SubscribeMessages } from '../../services/fireStore';
+import { ConnectUser } from '../../services/realtimeDB';
 import randomColor from '../../utils/randomColor';
 import styles from './Room.module.css';
 import OnlineUsersCount from './OnlineUsersCount';
@@ -30,7 +31,12 @@ function Room({ roomsData, clientUser }) {
   useEffect(() => {
     // Add user to general room for first run
     AddUserToRoom("general",clientUser.userName);
-  
+
+    // Connect user to real time database for listen
+    const connectionRef = ConnectUser(clientUser, filteredRoomData.id)
+
+    // Force removing connection for each room change
+    return () => connectionRef.remove();  
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
