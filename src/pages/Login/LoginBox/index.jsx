@@ -1,17 +1,23 @@
 import React, { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AddUser } from '../../../services/fireStore';
+import randomColor from '../../../utils/randomColor';
+import idfier from '../../../utils/idfier';
 import styles from '../Login.module.css';
 
-function LoginBox({ setUsername }) {
+function LoginBox({ setClientUser }) {
   const history = useHistory();
   const inputRef = useRef();
+  const userColor = randomColor();
 
   const handleAddUser = () => {
+    const typedUsername = inputRef.current.value; // Typed value from username input
+    const userObject = {userName: typedUsername, userID: idfier(typedUsername), userColor};
+
     // Create user with username into database
-    AddUser(inputRef.current.value);
+    AddUser(typedUsername, userColor);
     // Set local username for next logins
-    setUsername(inputRef.current.value);
+    setClientUser(userObject);
     // Navigate router to rooms
     history.push('rooms');
   };
@@ -26,7 +32,7 @@ function LoginBox({ setUsername }) {
           type="text"
           ref={inputRef}
           onKeyDown={(event) => {
-            if (event.code === 'Enter') handleAddUser();
+            if (event.code === 'Enter' && event.target.value !== "") handleAddUser();
           }}
         />
         {/* If username input is empty dont disable click */}

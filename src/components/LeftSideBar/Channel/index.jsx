@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { AddUserToRoom, RemoveUserFromRoom } from '../../../services/fireStore';
 import styles from '../LeftSideBar.module.css';
 
 function Channel({
@@ -9,7 +8,6 @@ function Channel({
   channelUserCount=0,
   channelId="title",
   channelDBId="general",
-  clientUserName,
   selectedChannel,
   setSelectedChannel,
 }) {
@@ -28,14 +26,10 @@ function Channel({
           tabIndex="0"
           role="button"
           onClick={() => {
-            // Remove user from previous room
-            RemoveUserFromRoom(selectedChannel.roomDBId, clientUserName);
-            // Add user to new room
-            AddUserToRoom(channelDBId, clientUserName)
             // Update selected channel
             setSelectedChannel({roomDBId: channelDBId,roomName:channelId});
             // Navigate to room
-            history.push(channelId)
+            history.push(channelDBId)
           }}
         >
           Join
