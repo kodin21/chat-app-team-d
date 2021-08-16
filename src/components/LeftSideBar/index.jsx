@@ -4,8 +4,16 @@ import AddNetwork from './AddNetwork';
 import Channel from './Channel';
 import Logo from './Logo';
 
-function LeftSideBar({ roomsData, userName }) {
-  const [selectedChannel, setSelectedChannel] = useState({roomDBId:'general',  roomName:'general'});
+function LeftSideBar({ roomsData, connectedUsers, clientUser }) {
+  const [selectedChannel, setSelectedChannel] = useState({
+    roomDBId: 'general',
+    roomName: 'general',
+  });
+
+  // Filter connectedusers for 
+  const roomConnectedUsers = (roomId) => connectedUsers.filter((room) => room.id === roomId);
+  const roomUserCount = (roomId) =>
+    roomConnectedUsers(roomId).length === 0 ? 0 : roomConnectedUsers(roomId)[0].connectedUsers.length;
 
   return (
     <div className={styles['Left-Sidebar']}>
@@ -18,10 +26,10 @@ function LeftSideBar({ roomsData, userName }) {
                 key={room.id}
                 {...{
                   channelTitle: room.data.displayName,
-                  channelUserCount: room.data.connectedUsers.length,
+                  channelUserCount: roomUserCount(room.id),
                   channelId: room.data.roomName,
                   channelDBId: room.id,
-                  clientUserName: userName,
+                  clientUserName: clientUser.userName,
                   selectedChannel,
                   setSelectedChannel,
                 }}

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { AddUserToRoom, SubscribeMessages } from '../../services/fireStore';
-import randomColor from '../../utils/randomColor';
+import moment from 'moment';
+import { useHistory, useParams } from 'react-router-dom';
+import { SubscribeMessages } from '../../services/fireStore';
+import { ConnectUser } from '../../services/realtimeDB';
 import styles from './Room.module.css';
 import OnlineUsersCount from './OnlineUsersCount';
 import MessageInput from './MessageInput';
@@ -9,78 +10,82 @@ import OnlineUser from './OnlineUser';
 import RoomHeader from './RoomHeader';
 import Message from './Message';
 
-const PlaceholderData = {
-  id: "general",
-  data: {
-    displayName: 'Room.Title',
-    roomName: 'room',
-    connectedUsers: [],
-    createdAt: 1628675400,
-  },
-};
-
-function Room({ roomsData, userName }) {
+function Room({ roomsData, clientUser, connectedUsers }) {
   const { roomId } = useParams();
+  const history = useHistory();
   const [messagesData, setMessagesData] = useState([]);
-  const filteredRoomData =
-    roomsData.length > 0
-      ? roomsData.filter((room) => room.data.roomName === roomId)[0]
-      : PlaceholderData;
+
+  // Filter room from rooms data
+  const filteredRoomData = roomsData.filter(room=> room.id === roomId);
+  const roomData = filteredRoomData.length === 0 ? [] : filteredRoomData;
+  const roomTitle = roomData.length === 0 ? "Room.Title" : roomData[0].data.displayName;
+
+  // Connected users of current room
+  const filteredConnectedUsers = connectedUsers.filter(room=>room.id === roomId);
+  const roomConnectedUsers =
+    filteredConnectedUsers.length === 0
+      ? []
+      : filteredConnectedUsers[0].connectedUsers;
+
+  console.log(messagesData);
 
   useEffect(() => {
-    // Add user to general room for first run
-    AddUserToRoom("general",userName);
-  
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    // If roomId doesn't exists in database navigate to general
+    if(roomData.length === 0){
+      history.replace("/room/general")
+    }
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  useEffect(()=>{
-    if(window.unsubscribe) window.unsubscribe();
+  useEffect(() => {
+    if (window.unsubscribe) window.unsubscribe();
+
     // Subscribe to messages data
-    SubscribeMessages(filteredRoomData.id, setMessagesData);
-  },[filteredRoomData.id])
+    SubscribeMessages(roomId, setMessagesData);
+
+    // Connect user to real time database for listen
+    const connectionRef = ConnectUser(clientUser, roomId);
+
+    // Force removing connection for each room change
+    return () => connectionRef.remove();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [roomId]);
 
   return (
     <div className={styles.Room}>
-      <RoomHeader title={filteredRoomData.data.displayName} />
+      <RoomHeader title={roomTitle} />
       <div className={styles.Main}>
         <div className={styles.Messages}>
           <div className={styles.MessageList}>
-            {
-              messagesData.length > 0 && messagesData.map(message => (
+            {messagesData.map((message) => (
                 <Message
                   key={message.id}
                   {...{
                     userName: message.data.senderID,
-                    userColor: "plum",
-                    messageTime: Date(message.data.createdAt),
-                    messageContent: message.data.message
+                    userColor: 'plum',
+                    messageTime: moment(message.data?.createdAt?.toDate()).format('MMM Do YYYY, h:mm:ss a'),
+                    messageContent: message.data.message,
                   }}
                 />
-              ))
-            }
-            {/* <Message
-              {...{
-                userName: 'Test',
-                userColor: 'plum',
-                messageTime: "22'Aug 11:00",
-                messageContent: 'Hello World!',
-              }}
-            /> */}
+              ))}
           </div>
         </div>
         <div className={styles['Online-Users']}>
-          <OnlineUsersCount count={filteredRoomData.data.connectedUsers.length} />
+          <OnlineUsersCount count={roomConnectedUsers.length} />
           <div className={styles.UserListContainer}>
             <div className={styles.UserList}>
-              {filteredRoomData?.data?.connectedUsers?.map((user) => (
-                <OnlineUser key={user} {...{ userName: user, userColor: randomColor() }} />
+              {roomConnectedUsers.map((user) => (
+                <OnlineUser
+                  key={user.userID + roomId}
+                  {...{ userName: user.userName, userColor: user.userColor }}
+                />
               ))}
             </div>
           </div>
         </div>
       </div>
-      <MessageInput {...{ roomId: filteredRoomData.id, userName }} />
+      <MessageInput {...{ roomId, userName: clientUser.userName }} />
     </div>
   );
 }

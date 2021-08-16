@@ -4,23 +4,28 @@ import { SubscribeRoomsData } from '../../services/fireStore';
 import styles from './Rooms.module.css';
 import LeftSideBar from '../../components/LeftSideBar';
 import Room from '../../components/Room';
+import { SubscribeConnectedUsersData } from '../../services/realtimeDB';
 
-function Rooms({userName}) {
+function Rooms({clientUser}) {
   const match = useRouteMatch();
   const [roomsData, setRoomsData] = useState([]);
+  const [connectedUsers, setConnectedUsers] = useState([]);
 
   useEffect(() => {
     // Initiate rooms data subscription
     SubscribeRoomsData(setRoomsData);
+
+    // Initiate conencted users data for rooms
+    SubscribeConnectedUsersData(setConnectedUsers)
   }, []);
 
   return (
     <div className="AppBackground">
       <div className={styles.App}>
-        <LeftSideBar {...{ roomsData, userName }} />
+        <LeftSideBar {...{ roomsData, clientUser, connectedUsers }} />
         <Switch>
           <Route path={`${match.path}/:roomId`}>
-            <Room {...{ roomsData, userName }} />
+            <Room {...{ roomsData, clientUser, connectedUsers }} />
           </Route>
         </Switch>
       </div>
