@@ -9,7 +9,7 @@ import { SubscribeConnectedUsersData } from '../../services/realtimeDB';
 function Rooms({clientUser}) {
   const match = useRouteMatch();
   const [roomsData, setRoomsData] = useState([]);
-  const [connectedUsers, setConnectedUsers] = useState({});
+  const [connectedUsers, setConnectedUsers] = useState([]);
 
   useEffect(() => {
     // Initiate rooms data subscription

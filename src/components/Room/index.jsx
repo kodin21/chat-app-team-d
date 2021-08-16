@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 import { useHistory, useParams } from 'react-router-dom';
 import { SubscribeMessages } from '../../services/fireStore';
 import { ConnectUser } from '../../services/realtimeDB';
@@ -9,30 +10,24 @@ import OnlineUser from './OnlineUser';
 import RoomHeader from './RoomHeader';
 import Message from './Message';
 
-const PlaceholderData = {
-  id: 'general',
-  data: {
-    displayName: 'General',
-    roomName: 'general',
-    connectedUsers: [],
-    createdAt: 1628675400,
-  },
-};
-
 function Room({ roomsData, clientUser, connectedUsers }) {
   const { roomId } = useParams();
   const history = useHistory();
   const [messagesData, setMessagesData] = useState([]);
 
   // Filter room from rooms data
-  const roomData = roomsData.filter(room=> room.id === roomId);
-  
-  // If the room is not in data use placeholder
-  const filteredRoomData = roomData.length > 0 ? roomData : [PlaceholderData];
-  const roomTitle = filteredRoomData[0].data.displayName;
+  const filteredRoomData = roomsData.filter(room=> room.id === roomId);
+  const roomData = filteredRoomData.length === 0 ? [] : filteredRoomData;
+  const roomTitle = roomData.length === 0 ? "Room.Title" : roomData[0].data.displayName;
 
   // Connected users of current room
-  const roomConnectedUsers = (id) => connectedUsers[id] !== undefined ? Object.values(connectedUsers[id]) : [];
+  const filteredConnectedUsers = connectedUsers.filter(room=>room.id === roomId);
+  const roomConnectedUsers =
+    filteredConnectedUsers.length === 0
+      ? []
+      : filteredConnectedUsers[0].connectedUsers;
+
+  console.log(messagesData);
 
   useEffect(() => {
     // If roomId doesn't exists in database navigate to general
@@ -63,14 +58,13 @@ function Room({ roomsData, clientUser, connectedUsers }) {
       <div className={styles.Main}>
         <div className={styles.Messages}>
           <div className={styles.MessageList}>
-            {messagesData.length > 0 &&
-              messagesData.map((message) => (
+            {messagesData.map((message) => (
                 <Message
                   key={message.id}
                   {...{
                     userName: message.data.senderID,
                     userColor: 'plum',
-                    messageTime: message.data.createdAt.toDate().toString(),
+                    messageTime: moment(message.data?.createdAt?.toDate()).format('MMM Do YYYY, h:mm:ss a'),
                     messageContent: message.data.message,
                   }}
                 />
@@ -81,7 +75,7 @@ function Room({ roomsData, clientUser, connectedUsers }) {
           <OnlineUsersCount count={roomConnectedUsers.length} />
           <div className={styles.UserListContainer}>
             <div className={styles.UserList}>
-              {roomConnectedUsers(roomId).map((user) => (
+              {roomConnectedUsers.map((user) => (
                 <OnlineUser
                   key={user.userID + roomId}
                   {...{ userName: user.userName, userColor: user.userColor }}
